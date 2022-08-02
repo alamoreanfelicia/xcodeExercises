@@ -9,7 +9,7 @@ var firstLetters = array
     .map ({ $0.prefix(1) })
     .joined(separator: "")
 print(firstLetters)
-
+//new commit
 //2. Sa se scrie o functie care primeste ca si parametru un cuvant si returneaza cuvantul scris in pasareasca. Practic dupa fiecare vocala se insereaza "p<vocala>". Ex: elena -> epelepenapa
 
 var word = "elena"
