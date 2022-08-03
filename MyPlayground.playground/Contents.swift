@@ -1,18 +1,35 @@
+//Se da o lista de studenti in format json cu urmatoarele date pt fiecare student: nume, prenume, data nasterii, domiciliu (tara, oras, judet, strada), an, profil. Sa se modeleze o clasa Student care sa contina elementele date si sa se foloseasca pentru incarcarea json-ului intr-un array de obiecte de tip student.
+
 import UIKit
 
-//1. Sa se scrie o functie care pentru o propozitie data creeaza un cuvant cu prima litera a feicarui cuvant, mai putin cele de legatura (max 3 litere). ex: Charlie si Fabrica de Ciocolata -> CFC
-var sentence = "Charlie si Fabrica de Ciocolata";
-var array = sentence.split(separator: " ")
-var firstLetters = array
-    .filter({ (val) -> Bool in
-        return val.count > 3 })
-    .map ({ $0.prefix(1) })
-    .joined(separator: "")
-print(firstLetters)
-//new commit
-//2. Sa se scrie o functie care primeste ca si parametru un cuvant si returneaza cuvantul scris in pasareasca. Practic dupa fiecare vocala se insereaza "p<vocala>". Ex: elena -> epelepenapa
+struct Students: Decodable {
+    let firstName: String
+    let lastName: String
+    let dateOfBirth: Int
+    let location: [Location]
+    let year: Int
+    let profile: String
+}
 
-var word = "elena"
-var vowels = "aeiou"
-var pasareasca = word.map({vowels.contains($0) ? "\($0)p\($0)" : "\($0)"}).joined(separator: "")
-print(pasareasca)
+struct Location: Decodable {
+    let country: String
+    let conty: String
+    let city: String
+    let street: String
+}
+
+guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
+    fatalError("errorrrr")
+}
+
+guard let studentData = try? Data(contentsOf: sourceURL) else {
+    fatalError("error")
+}
+
+let decoder = JSONDecoder()
+
+guard let student = try? decoder.decode(Students.self, from: studentData)else{
+    fatalError("eroare")
+}
+print(student.firstName)
+
