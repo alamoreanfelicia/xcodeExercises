@@ -21,7 +21,7 @@ struct Location: Decodable {
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
     fatalError("errorrrr")
 }
-
+print(sourceURL)
 guard let studentData = try? Data(contentsOf: sourceURL) else {
     fatalError("error")
 }
