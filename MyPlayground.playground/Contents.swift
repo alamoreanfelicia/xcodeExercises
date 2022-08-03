@@ -17,7 +17,7 @@ struct Location: Decodable {
     let city: String
     let street: String
 }
-
+print("orice")
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
     fatalError("errorrrr")
 }
