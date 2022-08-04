@@ -2,12 +2,13 @@
 
 import UIKit
 
+
 struct Students: Decodable {
     let firstName: String
     let lastName: String
     let dateOfBirth: String
     let location: Location
-    let year: String
+    let year: Int
     let profile: String
 }
 
@@ -35,4 +36,5 @@ guard let student = try? decoder.decode([Students].self, from: studentData) else
 
 for person in student {
     print("\(person.firstName) \(person.lastName) locuieste in \(person.location.country) judetul \(person.location.conty) pe strada \(person.location.street) din \(person.location.city)")
+    print("Si i-au mai ramas \(4 - person.year) ani de facultate")
 }

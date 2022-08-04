@@ -9,7 +9,7 @@
                 "city": "Timisoara",
                 "street": "1 Decembrie"
             },
-            "year": "2022",
+            "year": 2,
             "profile": "Informatica"
         },
         {
@@ -22,7 +22,7 @@
                 "city": "Medias",
                 "street": "Regele Ferdinand"
             },
-            "year": "2010",
+            "year": 4,
             "profile": "Matematica"
         },
         {
@@ -35,7 +35,7 @@
                 "city": "Blaj",
                 "street": "Nucului"
             },
-            "year": "2020",
+            "year": 1,
             "profile": "Filologie"
         }
 ]
