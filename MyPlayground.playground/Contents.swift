@@ -36,8 +36,18 @@ guard let student = try? decoder.decode([Students].self, from: studentData) else
 
 for person in student {
     
-    let name = ("\(person.firstName) \(person.lastName)")
-    let studentAddress = ("\(person.address.country), judetul \(person.address.conty), oras \(person.address.city), strada \(person.address.street)")
-    let description = ("este nascut la data de \(person.dateOfBirth), este la facultatea de \(person.profile) si se afla in anul \(person.year) de studiu")
+    var name: String {
+        return ("\(person.firstName) \(person.lastName)")
+    }
+    var studentAddress: String {
+        return ("\(person.address.country), judetul \(person.address.conty), oras \(person.address.city), strada \(person.address.street)")
+    }
+    var description: String {
+        return ("este nascut la data de \(person.dateOfBirth), este la facultatea de \(person.profile) si se afla in anul \(person.year) de studiu")
+    }
     print("\(name) locuieste in \(studentAddress) si \(description)")
+
 }
+
+
+
