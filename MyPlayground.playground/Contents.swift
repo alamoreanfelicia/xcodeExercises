@@ -7,12 +7,12 @@ struct Students: Decodable {
     let firstName: String
     let lastName: String
     let dateOfBirth: String
-    let location: Location
+    let address: Address
     let year: Int
     let profile: String
 }
 
-struct Location: Decodable {
+struct Address: Decodable {
     let country: String
     let conty: String
     let city: String
@@ -35,6 +35,9 @@ guard let student = try? decoder.decode([Students].self, from: studentData) else
 }
 
 for person in student {
-    print("\(person.firstName) \(person.lastName) locuieste in \(person.location.country) judetul \(person.location.conty) pe strada \(person.location.street) din \(person.location.city)")
-    print("Si i-au mai ramas \(4 - person.year) ani de facultate")
+    
+    let name = ("\(person.firstName) \(person.lastName)")
+    let studentAddress = ("\(person.address.country), judetul \(person.address.conty), oras \(person.address.city), strada \(person.address.street)")
+    let description = ("este nascut la data de \(person.dateOfBirth), este la facultatea de \(person.profile) si se afla in anul \(person.year) de studiu")
+    print("\(name) locuieste in \(studentAddress) si \(description)")
 }
