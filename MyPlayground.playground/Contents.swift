@@ -11,13 +11,10 @@ struct Students: Decodable {
     let profile: String
     
     var name: String {
-        ("\(firstName) \(lastName)")
-    }
-    var personAddress: String {
-        ("\(address.country), judetul \(address.conty), oras \(address.city), strada \(address.street)")
+        "\(firstName) \(lastName)"
     }
     var description: String {
-        ("este nascut la data de \(dateOfBirth), este la facultatea de \(profile) si se afla in anul \(year) de studiu")
+        "este nascut la data de \(dateOfBirth), este la facultatea de \(profile) si se afla in anul \(year) de studiu"
     }
     
 }
@@ -27,6 +24,10 @@ struct Address: Decodable {
     let conty: String
     let city: String
     let street: String
+    
+    var personAddress: String {
+        "\(country), judetul \(conty), oras \(city), strada \(street)"
+    }
 }
 
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
@@ -45,7 +46,7 @@ guard let student = try? decoder.decode([Students].self, from: studentData) else
 
 for person in student {
     let studentName = person.name
-    let studentAddress = person.personAddress
+    let studentAddress = person.address.personAddress
     let studentDescription = person.description
     print("\(studentName) locuieste in \(studentAddress) si \(studentDescription)")
 }
