@@ -1,16 +1,14 @@
-//nume, prenume, data nasterii, domiciliu (tara, oras, judet, strada), an, profil.
-
 [
         {
             "firstName": "Popescu",
             "lastName": "Ion",
             "dateOfBirth": "01.02.1998",
-            "location": [{
+            "location": {
                 "country": "Romania",
                 "conty": "Timis",
                 "city": "Timisoara",
                 "street": "1 Decembrie"
-            }],
+            },
             "year": "2022",
             "profile": "Informatica"
         },
@@ -18,12 +16,12 @@
             "firstName": "Ionescu",
             "lastName": "Maria",
             "dateOfBirth": "10.09.1990",
-            "location": [{
+            "location": {
                 "country": "Romania",
                 "conty": "Sibiu",
                 "city": "Medias",
                 "street": "Regele Ferdinand"
-            }],
+            },
             "year": "2010",
             "profile": "Matematica"
         },
@@ -31,12 +29,12 @@
             "firstName": "Popa",
             "lastName": "Mihai",
             "dateOfBirth": "20.05.2001",
-            "location": [{
+            "location": {
                 "country": "Romania",
                 "conty": "Alba",
                 "city": "Blaj",
                 "street": "Nucului"
-            }],
+            },
             "year": "2020",
             "profile": "Filologie"
         }

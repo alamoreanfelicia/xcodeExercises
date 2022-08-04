@@ -5,9 +5,9 @@ import UIKit
 struct Students: Decodable {
     let firstName: String
     let lastName: String
-    let dateOfBirth: Int
-    let location: [Location]
-    let year: Int
+    let dateOfBirth: String
+    let location: Location
+    let year: String
     let profile: String
 }
 
@@ -17,19 +17,22 @@ struct Location: Decodable {
     let city: String
     let street: String
 }
-print("orice")
+
+
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
     fatalError("errorrrr")
 }
-print(sourceURL)
+
 guard let studentData = try? Data(contentsOf: sourceURL) else {
     fatalError("error")
 }
 
 let decoder = JSONDecoder()
 
-guard let student = try? decoder.decode(Students.self, from: studentData)else{
+guard let student = try? decoder.decode([Students].self, from: studentData) else {
     fatalError("eroare")
 }
-print(student.firstName)
 
+for person in student {
+    print("\(person.firstName) \(person.lastName) locuieste in \(person.location.country) juetul \(person.location.conty) pe strada \(person.location.street) din \(person.location.city)")
+}
