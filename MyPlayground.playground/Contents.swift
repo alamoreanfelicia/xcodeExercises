@@ -34,5 +34,5 @@ guard let student = try? decoder.decode([Students].self, from: studentData) else
 }
 
 for person in student {
-    print("\(person.firstName) \(person.lastName) locuieste in \(person.location.country) juetul \(person.location.conty) pe strada \(person.location.street) din \(person.location.city)")
+    print("\(person.firstName) \(person.lastName) locuieste in \(person.location.country) judetul \(person.location.conty) pe strada \(person.location.street) din \(person.location.city)")
 }
