@@ -45,8 +45,14 @@ guard let students = try? decoder.decode([Student].self, from: studentData) else
     fatalError("eroare")
 }
 
-for student in students {
-    let groupingNames = Dictionary(grouping: student.name) {_ in student.year }
-    print(groupingNames)
+
+let groupingNames = Dictionary(grouping: students) {(p) -> Int in
+    return p.year
 }
 
+for group in groupingNames{
+    print(group.key, terminator: " ")
+    for item in group.value{
+        print(item.name)
+    }
+}
