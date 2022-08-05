@@ -1,8 +1,9 @@
 //Se da o lista de studenti in format json cu urmatoarele date pt fiecare student: nume, prenume, data nasterii, domiciliu (tara, oras, judet, strada), an, profil. Sa se modeleze o clasa Student care sa contina elementele date si sa se foloseasca pentru incarcarea json-ului intr-un array de obiecte de tip student.
 
 import UIKit
+import Foundation
 
-struct Students: Decodable {
+struct Student: Decodable {
     let firstName: String
     let lastName: String
     let dateOfBirth: String
@@ -25,7 +26,7 @@ struct Address: Decodable {
     let city: String
     let street: String
     
-    var personAddress: String {
+    var fullAddress: String {
         "\(country), judetul \(conty), oras \(city), strada \(street)"
     }
 }
@@ -40,13 +41,12 @@ guard let studentData = try? Data(contentsOf: sourceURL) else {
 
 let decoder = JSONDecoder()
 
-guard let student = try? decoder.decode([Students].self, from: studentData) else {
+guard let students = try? decoder.decode([Student].self, from: studentData) else {
     fatalError("eroare")
 }
 
-for person in student {
-    let studentName = person.name
-    let studentAddress = person.address.personAddress
-    let studentDescription = person.description
-    print("\(studentName) locuieste in \(studentAddress) si \(studentDescription)")
+for student in students {
+    let groupingNames = Dictionary(grouping: student.name) {_ in student.year }
+    print(groupingNames)
 }
+

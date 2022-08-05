@@ -37,6 +37,19 @@
             },
             "year": 1,
             "profile": "Filologie"
+        },
+        {
+            "firstName": "Moldovan",
+            "lastName": "Alexandra",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 1,
+            "profile": "Teologie"
         }
 ]
 
