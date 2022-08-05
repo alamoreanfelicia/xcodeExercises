@@ -50,9 +50,10 @@ let groupingNames = Dictionary(grouping: students) {(p) -> Int in
     return p.year
 }
 
-for group in groupingNames{
-    print(group.key, terminator: " ")
-    for item in group.value{
-        print(item.name)
+for group in groupingNames.sorted(by: { $0.key < $1.key }){
+    print("Anul \(group.key): ", terminator: "")
+    group.value.forEach{item in
+        print(item.name, terminator: ", ")
     }
+    print()
 }
