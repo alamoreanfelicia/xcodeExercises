@@ -50,15 +50,9 @@ let groupingNames = Dictionary(grouping: students) {(p) -> Int in
     return p.year
 }
 
-var str = ""
-
-for group in groupingNames.sorted(by: { $0.key < $1.key }){
-    str = "\(str) Anul \(group.key): "
-    group.value.forEach{(item) in
-        str = "\(str) Studentul \(item.name),"
-    }
-    str.removeLast()
-    str = "\(str)\("\n")"
+groupingNames.sorted(by: { $0.key < $1.key }).map{
+    let arrayMap = $0.value.map(){
+        ($0.name)
 }
-
-print(str)
+    print("Anul \(String($0.value[0].year)): \(arrayMap.joined(separator: ", "))")
+}
