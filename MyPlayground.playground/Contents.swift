@@ -55,8 +55,10 @@ var str = ""
 for group in groupingNames.sorted(by: { $0.key < $1.key }){
     str = "\(str) Anul \(group.key): "
     group.value.forEach{(item) in
-        str = "\(str) \(item.name), "
+        str = "\(str) Studentul \(item.name),"
     }
-    str = "\(str) \("\n")"
+    str.removeLast()
+    str = "\(str)\("\n")"
 }
+
 print(str)
