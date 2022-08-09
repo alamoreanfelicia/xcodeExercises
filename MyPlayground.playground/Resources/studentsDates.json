@@ -10,7 +10,11 @@
                 "street": "1 Decembrie"
             },
             "year": 2,
-            "profile": "Informatica"
+            "profile": "Informatica",
+            "course": {
+                "note1": [10,2,3,4],
+                "note2": [8,6,10]
+           }
         },
         {
             "firstName": "Ionescu",
@@ -23,7 +27,11 @@
                 "street": "Regele Ferdinand"
             },
             "year": 4,
-            "profile": "Matematica"
+            "profile": "Matematica",
+            "course": {
+                "note1": [7,2,3,10],
+                "note2": [4,5,7]
+            }
         },
         {
             "firstName": "Popa",
@@ -36,7 +44,11 @@
                 "street": "Nucului"
             },
             "year": 1,
-            "profile": "Filologie"
+            "profile": "Filologie",
+            "course": {
+                "note1": [1,5],
+                "note2": [1,1]
+            }
         },
         {
             "firstName": "Moldovan",
@@ -49,7 +61,11 @@
                 "street": "Unirii"
             },
             "year": 1,
-            "profile": "Teologie"
+            "profile": "Teologie",
+            "course": {
+                "note1": [2,3],
+                "note2": [2,6]
+            }
         }
 ]
 
