@@ -10,7 +10,7 @@ struct Student: Decodable {
     let address: Address
     let year: Int
     let profile: String
-    let course: Course
+    let course: Dictionary<String, Int>
     
     var name: String {
         "\(firstName) \(lastName)"
@@ -28,25 +28,6 @@ struct Address: Decodable {
     
     var fullAddress: String {
         "\(country), judetul \(conty), oras \(city), strada \(street)"
-    }
-}
-
-struct Course: Decodable {
-    let note1: [Int]
-    let note2: [Int]
-
-    var averageNote1: Double{
-        ceil(Double(note1.reduce(0,+)) / Double(note1.count))
-    }
-    var averageNote2: Double{
-        ceil(Double(note2.reduce(0,+)) / Double(note2.count))
-    }
-    var generalAverage: Double{
-        ceil((averageNote1 + averageNote1) / 2)
-    }
-    
-    var repetent: Bool{
-        Int(generalAverage) < 5
     }
 }
 
@@ -78,8 +59,10 @@ groupingNames.sorted(by: { $0.key < $1.key }).map{
 var repetenti: [String] = []
 
 students.map{
-    print("\($0.name) are mediile: \(Int($0.course.averageNote1)) si \(Int($0.course.averageNote2)), iar media generala este: \(Int($0.course.generalAverage))")
-    if ($0.course.repetent == true){
+    let numberOfCourses = $0.course.keys.count
+    let generalAverage = ceil(Double($0.course.values.reduce(0,+))/Double(numberOfCourses))
+    print("\($0.name) are media: \(generalAverage)")
+    if (generalAverage < 5){
         repetenti.append($0.name)
     }
 }
