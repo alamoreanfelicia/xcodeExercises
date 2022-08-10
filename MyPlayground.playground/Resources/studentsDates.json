@@ -11,7 +11,7 @@
             },
             "year": 2,
             "profile": "Informatica",
-            "course": {
+            "grades": {
                 "romana": 10,
                 "mate": 6,
                 "engleza": 7,
@@ -30,7 +30,7 @@
             },
             "year": 4,
             "profile": "Matematica",
-            "course": {
+            "grades": {
                 "romana": 4,
                 "mate": 2,
                 "engleza": 1
@@ -48,7 +48,7 @@
             },
             "year": 1,
             "profile": "Filologie",
-            "course": {
+            "grades": {
                 "romana": 8,
                 "mate": 9,
                 "engleza": 8,
@@ -67,7 +67,7 @@
             },
             "year": 1,
             "profile": "Teologie",
-            "course": {
+            "grades": {
                 "romana": 1,
                 "mate": 2,
                 "engleza": 3

@@ -10,7 +10,7 @@ struct Student: Decodable {
     let address: Address
     let year: Int
     let profile: String
-    let course: Dictionary<String, Int>
+    let grades: Dictionary<String, Int>
     
     var name: String {
         "\(firstName) \(lastName)"
@@ -58,11 +58,14 @@ groupingNames.sorted(by: { $0.key < $1.key }).map{
 
 var repetenti: [String] = []
 
-students.map{
-    let numberOfCourses = $0.course.keys.count
-    let generalAverage = ceil(Double($0.course.values.reduce(0,+))/Double(numberOfCourses))
+students.forEach{
+    let numberOfCourses = $0.grades.keys.count
+    let generalAverage = Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)
     print("\($0.name) are media: \(generalAverage)")
-    if (generalAverage < 5){
+
+    let gradesBelow5 = $0.grades.values.filter{ $0 < 5 }
+    
+    if (!gradesBelow5.isEmpty){
         repetenti.append($0.name)
     }
 }
