@@ -72,6 +72,168 @@
                 "mate": 2,
                 "engleza": 3
             }
+        },
+        {
+            "firstName": "Alexa",
+            "lastName": "Marcel",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 3,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Haiduc",
+            "lastName": "Andreea",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 2,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Bacea",
+            "lastName": "Ilie",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 4,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Cercea",
+            "lastName": "Laur",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 2,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Marginean",
+            "lastName": "Ana",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 3,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Iancu",
+            "lastName": "Cezar",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 4,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Avram",
+            "lastName": "Monica",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 1,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Popescu",
+            "lastName": "Laurentiu",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 2,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
+        },
+        {
+            "firstName": "Dan",
+            "lastName": "Eugen",
+            "dateOfBirth": "17.12.2000",
+            "address": {
+                "country": "Romania",
+                "conty": "Alba",
+                "city": "Blaj",
+                "street": "Unirii"
+            },
+            "year": 4,
+            "profile": "Teologie",
+            "grades": {
+                "romana": 1,
+                "mate": 2,
+                "engleza": 3
+            }
         }
 ]
 

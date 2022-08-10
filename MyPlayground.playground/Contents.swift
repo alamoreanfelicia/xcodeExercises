@@ -49,24 +49,41 @@ let groupingNames = Dictionary(grouping: students) {(p) -> Int in
     return p.year
 }
 
-groupingNames.sorted(by: { $0.key < $1.key }).map{
-    let arrayMap = $0.value.map(){
+groupingNames.sorted(by: { $0.key < $1.key }).map {
+    let arrayMap = $0.value.map {
         ($0.name)
 }
     print("Anul \(String($0.value[0].year)): \(arrayMap.joined(separator: ", "))")
 }
 
-var repetenti: [String] = []
+//var rooms: [String] = [String](repeating: "", count: 3)
+var rooms: [String] = []
 
-students.forEach {
-    let numberOfCourses = $0.grades.keys.count
-    let generalAverage = Double(round(100 * (Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)))/100)
-    print("\($0.name) are media: \(generalAverage)")
-
-    let gradesBelow5 = $0.grades.values.filter { $0 < 5 }
-    
-    if (!gradesBelow5.isEmpty) {
-        repetenti.append($0.name)
-    }
+var group = groupingNames.map {
+    rooms.append($0.value[0].name)
+    print(rooms)
+//    $0.value.map{
+//        rooms.append($0.name)
+//        //print($0.name)
+//    }
 }
-print("Repetenti: \(repetenti.joined(separator:", "))")
+//print(group)
+print(rooms)
+
+
+
+//var repetenti: [String] = []
+//
+//students.forEach {
+//    let numberOfCourses = $0.grades.keys.count
+//    let generalAverage = Double(round(100 * (Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)))/100)
+//    print("\($0.name) are media: \(generalAverage)")
+//
+//    let gradesBelow5 = $0.grades.values.filter { $0 < 5 }
+//
+//    if (!gradesBelow5.isEmpty) {
+//        repetenti.append($0.name)
+//    }
+//}
+//print("Repetenti: \(repetenti.joined(separator:", "))")
+
