@@ -58,14 +58,14 @@ groupingNames.sorted(by: { $0.key < $1.key }).map{
 
 var repetenti: [String] = []
 
-students.forEach{
+students.forEach {
     let numberOfCourses = $0.grades.keys.count
-    let generalAverage = Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)
+    let generalAverage = Double(round(100 * (Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)))/100)
     print("\($0.name) are media: \(generalAverage)")
 
-    let gradesBelow5 = $0.grades.values.filter{ $0 < 5 }
+    let gradesBelow5 = $0.grades.values.filter { $0 < 5 }
     
-    if (!gradesBelow5.isEmpty){
+    if (!gradesBelow5.isEmpty) {
         repetenti.append($0.name)
     }
 }
