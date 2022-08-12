@@ -31,6 +31,14 @@ struct Address: Decodable {
     }
 }
 
+struct Room {
+    var students: [Student] = []
+}
+
+struct Hotel {
+    var rooms: [Room] = []
+}
+
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
     fatalError("errorrrr")
 }
@@ -56,19 +64,19 @@ groupingNames.sorted(by: { $0.key < $1.key }).map {
     print("Anul \(String($0.value[0].year)): \(arrayMap.joined(separator: ", "))")
 }
 
-//var rooms: [String] = [String](repeating: "", count: 3)
-var rooms: [String] = []
+var hotel = Hotel()
+var hotelRooms = Room()
 
-var group = groupingNames.map {
-    rooms.append($0.value[0].name)
-    print(rooms)
-//    $0.value.map{
-//        rooms.append($0.name)
-//        //print($0.name)
-//    }
+for (index, student) in students.enumerated(){
+    hotelRooms.students.append(student)
+    if((index + 1) % 3 == 0) {
+        hotel.rooms.append(hotelRooms)
+        hotelRooms.students.map{
+            print("\($0.name) (anul: \($0.year))")
+        }
+        hotelRooms.students.removeAll()
+    }
 }
-//print(group)
-print(rooms)
 
 
 
