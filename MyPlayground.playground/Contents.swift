@@ -66,15 +66,15 @@ groupingNames.forEach {
     }
 }
 
-var room: [String] = []
+var rooms: [Int: [String]] = [:]
+rooms[1] = []
 
-dictionary.map {
-    if ((room.count) < 3) {
-        room.append($0.value.first!)
+for (key, value) in dictionary{
+    if ((rooms[1]!.count) < 3) {
+        rooms[1]!.append(value.first!)
     }
 }
-print(room)
-
+print(rooms)
 
 
 
