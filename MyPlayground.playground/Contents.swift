@@ -67,15 +67,23 @@ groupingNames.forEach {
 }
 
 var rooms: [Int: [String]] = [:]
-rooms[1] = []
 
-for (key, value) in dictionary{
-    if ((rooms[1]!.count) < 3) {
-        rooms[1]!.append(value.first!)
+var rooms_count = 1
+rooms[rooms_count] = []
+
+var students_left = students.count
+
+while(students_left > 0) {
+    for (key, _) in dictionary {
+        if ((rooms[rooms_count]!.count) < 3) {
+            rooms[rooms_count]!.append(dictionary[key]!.removeFirst())
+        } else {
+            rooms_count += 1
+            rooms[rooms_count] = []
+        }
     }
 }
-print(rooms)
-
+print(rooms.sorted(by: { $0.key < $1.key }))
 
 
 //var repetenti: [String] = []
