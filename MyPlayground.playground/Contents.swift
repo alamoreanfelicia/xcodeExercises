@@ -31,13 +31,7 @@ struct Address: Decodable {
     }
 }
 
-struct Room {
-    var students: [Student] = []
-}
-
-struct Hotel {
-    var rooms: [Room] = []
-}
+var dictionary = [Int: [String]]()
 
 guard let sourceURL = Bundle.main.url(forResource: "studentsDates", withExtension: "json") else {
     fatalError("errorrrr")
@@ -53,30 +47,34 @@ guard let students = try? decoder.decode([Student].self, from: studentData) else
     fatalError("eroare")
 }
 
-let groupingNames = Dictionary(grouping: students) {(p) -> Int in
+var groupingNames = Dictionary(grouping: students) {(p) -> Int in
     return p.year
-}
+}.sorted(by: { $0.key < $1.key })
 
-groupingNames.sorted(by: { $0.key < $1.key }).map {
+groupingNames.forEach {
     let arrayMap = $0.value.map {
         ($0.name)
-}
+    }
     print("Anul \(String($0.value[0].year)): \(arrayMap.joined(separator: ", "))")
 }
 
-var hotel = Hotel()
-var hotelRooms = Room()
+print("-------------------------------")
 
-for (index, student) in students.enumerated(){
-    hotelRooms.students.append(student)
-    if((index + 1) % 3 == 0) {
-        hotel.rooms.append(hotelRooms)
-        hotelRooms.students.map{
-            print("\($0.name) (anul: \($0.year))")
-        }
-        hotelRooms.students.removeAll()
+groupingNames.forEach {
+    dictionary[$0.key] = $0.value.map {
+        return $0.name
     }
 }
+
+var room: [String] = []
+
+dictionary.map {
+    if ((room.count) < 3) {
+        room.append($0.value.first!)
+    }
+}
+print(room)
+
 
 
 
