@@ -76,14 +76,23 @@ var students_left = students.count
 while(students_left > 0) {
     for (key, _) in dictionary {
         if ((rooms[rooms_count]!.count) < 3) {
-            rooms[rooms_count]!.append(dictionary[key]!.removeFirst())
+            if let year = dictionary[key], year.isEmpty{
+                continue
+            }
+            if let student = dictionary[key]?.removeFirst() {
+                rooms[rooms_count]?.append(student)
+            }
         } else {
             rooms_count += 1
             rooms[rooms_count] = []
         }
     }
+    students_left -= 1
 }
-print(rooms.sorted(by: { $0.key < $1.key }))
+
+for (key, value) in rooms.sorted(by: { $0.key < $1.key }) {
+    print("Camera \(key): \(value.joined(separator: ", "))")
+}
 
 
 //var repetenti: [String] = []
