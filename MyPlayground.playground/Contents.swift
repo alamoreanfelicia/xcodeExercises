@@ -90,17 +90,14 @@ while(students_left > 0) {
 
 if rooms[rooms_count]!.count == 1 {
     let last_room = rooms_count - 1
-    rooms[rooms_count]!.append(rooms[last_room]!.removeLast())
+    if let student = rooms[last_room]?.removeLast() {
+        rooms[rooms_count]!.append(student)
+        if student == rooms[rooms_count]!.first! {
+            rooms[rooms_count]!.append(rooms[last_room]!.removeFirst())
+        }
+    }
 }
 
-//if rooms[rooms_count]!.count == 1 {
-//    let last_room = rooms_count - 1
-//    if let student = rooms[last_room]?.removeLast() {
-//        if student == rooms[rooms_count]!.first {
-//            rooms[rooms_count]!.append(student)
-//        }
-//    }
-//}
 
 for (key, value) in rooms.sorted(by: { $0.key < $1.key }) {
     print("Camera \(key): \(value.joined(separator: ", "))")
