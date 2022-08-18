@@ -1,5 +1,3 @@
-//Se da o lista de studenti in format json cu urmatoarele date pt fiecare student: nume, prenume, data nasterii, domiciliu (tara, oras, judet, strada), an, profil. Sa se modeleze o clasa Student care sa contina elementele date si sa se foloseasca pentru incarcarea json-ului intr-un array de obiecte de tip student.
-
 import UIKit
 import Foundation
 
@@ -90,9 +88,24 @@ while(students_left > 0) {
     students_left -= 1
 }
 
+if rooms[rooms_count]!.count == 1 {
+    let last_room = rooms_count - 1
+    rooms[rooms_count]!.append(rooms[last_room]!.removeLast())
+}
+
+//if rooms[rooms_count]!.count == 1 {
+//    let last_room = rooms_count - 1
+//    if let student = rooms[last_room]?.removeLast() {
+//        if student == rooms[rooms_count]!.first {
+//            rooms[rooms_count]!.append(student)
+//        }
+//    }
+//}
+
 for (key, value) in rooms.sorted(by: { $0.key < $1.key }) {
     print("Camera \(key): \(value.joined(separator: ", "))")
 }
+
 
 
 //var repetenti: [String] = []
