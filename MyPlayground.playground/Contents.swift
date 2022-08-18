@@ -4,11 +4,11 @@ import Foundation
 struct Student: Decodable {
     let firstName: String
     let lastName: String
-    let dateOfBirth: String
-    let address: Address
-    let year: Int
-    let profile: String
-    let grades: Dictionary<String, Int>
+    let dateOfBirth: String?
+    let address: Address?
+    let year: Int?
+    let profile: String?
+    let grades: Dictionary<String, Int>?
     
     var name: String {
         "\(firstName) \(lastName)"
@@ -46,14 +46,14 @@ guard let students = try? decoder.decode([Student].self, from: studentData) else
 }
 
 var groupingNames = Dictionary(grouping: students) {(p) -> Int in
-    return p.year
+    return p.year!
 }.sorted(by: { $0.key < $1.key })
 
 groupingNames.forEach {
     let arrayMap = $0.value.map {
         ($0.name)
     }
-    print("Anul \(String($0.value[0].year)): \(arrayMap.joined(separator: ", "))")
+    print("Anul \(String($0.value[0].year!)): \(arrayMap.joined(separator: ", "))")
 }
 
 print("-------------------------------")
@@ -64,7 +64,7 @@ groupingNames.forEach {
     }
 }
 
-var rooms: [Int: [String]] = [:]
+var rooms: [Int: [Student]] = [:]
 
 var rooms_count = 1
 rooms[rooms_count] = []
@@ -78,7 +78,8 @@ while(students_left > 0) {
                 continue
             }
             if let student = dictionary[key]?.removeFirst() {
-                rooms[rooms_count]?.append(student)
+                let stud = Student(firstName: student, lastName: "", dateOfBirth: nil, address: nil, year: key, profile: nil, grades: nil)
+                rooms[rooms_count]?.append(stud)
             }
         } else {
             rooms_count += 1
@@ -88,20 +89,33 @@ while(students_left > 0) {
     students_left -= 1
 }
 
+//if rooms[rooms_count]!.count == 1 {
+//    let last_room = rooms_count - 1
+//    if let student = rooms[last_room]?.removeLast() {
+//        rooms[rooms_count]!.append(student)
+//        if student.year == rooms[rooms_count]!.first!.year {
+//            rooms[rooms_count]!.append(rooms[last_room]!.removeFirst())
+//        }
+//    }
+//}
+
 if rooms[rooms_count]!.count == 1 {
     let last_room = rooms_count - 1
-    if let student = rooms[last_room]?.removeLast() {
-        rooms[rooms_count]!.append(student)
-        if student == rooms[rooms_count]!.first! {
-            rooms[rooms_count]!.append(rooms[last_room]!.removeFirst())
-        }
-    }
+    rooms[rooms_count]!.append(rooms[last_room]!.removeFirst())
 }
-
 
 for (key, value) in rooms.sorted(by: { $0.key < $1.key }) {
-    print("Camera \(key): \(value.joined(separator: ", "))")
+    var finalRez = ""
+    for student in value {
+        if finalRez.isEmpty{
+            finalRez = "\(student.name)(anul \(student.year!))"
+        } else {
+        finalRez = "\(finalRez), \(student.name)(anul \(student.year!))"
+        }
+    }
+    print("Camera \(key): \(finalRez)")
 }
+
 
 
 
