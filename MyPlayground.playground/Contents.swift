@@ -14,7 +14,7 @@ struct Student: Decodable {
         "\(firstName) \(lastName)"
     }
     var description: String {
-        "este nascut la data de \(dateOfBirth), este la facultatea de \(profile) si se afla in anul \(year) de studiu"
+        "este nascut la data de \(dateOfBirth!), este la facultatea de \(profile!) si se afla in anul \(year!) de studiu"
     }
 }
 
@@ -55,6 +55,23 @@ groupingNames.forEach {
     }
     print("Anul \(String($0.value[0].year!)): \(arrayMap.joined(separator: ", "))")
 }
+
+print("-------------------------------")
+
+var repetenti: [String] = []
+
+students.forEach {
+    let numberOfCourses = $0.grades!.keys.count
+    let generalAverage = String(format: "%.2f", (Double($0.grades!.values.reduce(0,+))/Double(numberOfCourses)))
+    print("\($0.name) are media: \(generalAverage)")
+
+    let gradesBelow5 = $0.grades!.values.filter { $0 < 5 }
+
+    if (!gradesBelow5.isEmpty) {
+        repetenti.append($0.name)
+    }
+}
+print("Repetenti: \(repetenti.joined(separator:", "))")
 
 print("-------------------------------")
 
@@ -115,22 +132,3 @@ for (key, value) in rooms.sorted(by: { $0.key < $1.key }) {
     }
     print("Camera \(key): \(finalRez)")
 }
-
-
-
-
-//var repetenti: [String] = []
-//
-//students.forEach {
-//    let numberOfCourses = $0.grades.keys.count
-//    let generalAverage = Double(round(100 * (Double($0.grades.values.reduce(0,+))/Double(numberOfCourses)))/100)
-//    print("\($0.name) are media: \(generalAverage)")
-//
-//    let gradesBelow5 = $0.grades.values.filter { $0 < 5 }
-//
-//    if (!gradesBelow5.isEmpty) {
-//        repetenti.append($0.name)
-//    }
-//}
-//print("Repetenti: \(repetenti.joined(separator:", "))")
-
